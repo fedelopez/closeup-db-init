@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="show_sql">false</property>
+        <property name="format_sql">true</property>
+        <property name="dialect">com.google.code.hibernate.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:target/${hibernate.connection.url}</property>
+
+        <property name="connection.username"></property>
+        <property name="connection.password"></property>
+
+        <mapping class="com.closeuptheapp.domain.AbstractQuestion"/>
+        <mapping class="com.closeuptheapp.domain.MultiAnswerQuestion"/>
+        <mapping class="com.closeuptheapp.domain.TrueFalseQuestion"/>
+        <mapping class="com.closeuptheapp.domain.WhichOneCameFirstQuestion"/>
+    </session-factory>
+</hibernate-configuration>
+

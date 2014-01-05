@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <table name="question">
+        <column>question_id</column>
+        <column>image_name</column>
+        <column>correct_answer</column>
+        <column>number_appearances</column>
+        <column>question_text</column>
+        <column>difficulty</column>
+    </table>
+    <table name="multi_answer_question">
+        <column>question_id</column>
+        <column>answer1</column>
+        <column>answer2</column>
+        <column>answer3</column>
+        <column>answer4</column>
+    </table>
+    <table name="true_false_question">
+        <column>question_id</column>
+        <column>answer_when_false</column>
+    </table>
+    <table name="which_one_came_first">
+        <column>question_id</column>
+        <column>movie_title1</column>
+        <column>movie_title2</column>
+        <column>movie_title1_image</column>
+        <column>movie_title2_image</column>
+        <column>movie_title1_year</column>
+        <column>movie_title2_year</column>
+    </table>
+</dataset>

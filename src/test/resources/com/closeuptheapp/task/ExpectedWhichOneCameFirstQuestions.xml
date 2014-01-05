@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <table name="question">
+        <column>question_id</column>
+        <column>image_name</column>
+        <column>correct_answer</column>
+        <column>number_appearances</column>
+        <column>question_text</column>
+        <column>difficulty</column>
+        <row>
+            <value>1</value>
+            <value>sunrise.jpg</value>
+            <value>Film 1</value>
+            <value>0</value>
+            <value>Which one came first?</value>
+            <value>150</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>nasa.jpg</value>
+            <value>Apollo XIII</value>
+            <value>0</value>
+            <value>Which one came first?</value>
+            <value>50</value>
+        </row>
+    </table>
+    <table name="which_one_came_first">
+        <column>question_id</column>
+        <column>movie_title1</column>
+        <column>movie_title2</column>
+        <column>movie_title1_image</column>
+        <column>movie_title2_image</column>
+        <column>movie_title1_year</column>
+        <column>movie_title2_year</column>
+        <row>
+            <value>1</value>
+            <value>Film 1</value>
+            <value>Film 2</value>
+            <value>image 1.jpg</value>
+            <value>image 2.jpg</value>
+            <value>1987</value>
+            <value>1999</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Apollo XX</value>
+            <value>Apollo XIII</value>
+            <value>image 1.jpg</value>
+            <value>image 2.jpg</value>
+            <value>2010</value>
+            <value>1984</value>
+        </row>
+    </table>
+</dataset>

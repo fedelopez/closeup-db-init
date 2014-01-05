@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <table name="question">
+        <column>question_id</column>
+        <column>image_name</column>
+        <column>correct_answer</column>
+        <column>number_appearances</column>
+        <column>question_text</column>
+        <column>difficulty</column>
+        <row>
+            <value>1</value>
+            <value>sagrada_familia.jpg</value>
+            <value>True</value>
+            <value>0</value>
+            <value>The capital of Catalonia is Barcelona.</value>
+            <value>150</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>opera_house.jpg</value>
+            <value>False</value>
+            <value>0</value>
+            <value>The capital of Australia is Melbourne.</value>
+            <value>200</value>
+        </row>
+    </table>
+    <table name="true_false_question">
+        <column>question_id</column>
+        <column>answer_when_false</column>
+        <row>
+            <value>1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Canberra</value>
+        </row>
+    </table>
+</dataset>
