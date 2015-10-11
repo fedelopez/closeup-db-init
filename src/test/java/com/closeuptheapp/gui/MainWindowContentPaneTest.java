@@ -62,16 +62,19 @@ public class MainWindowContentPaneTest {
 
         initDB.click();
 
-        verify(importExcelTask, timeout(500)).init(Mockito.eq(excelFile));
-        verify(populateTablesTask, timeout(500)).init(Mockito.eq(questions));
-        verify(populateTablesTask, timeout(500)).execute(Mockito.any(TaskCallback.class));
+        verify(importExcelTask, timeout(300)).init(Mockito.eq(excelFile));
+        verify(populateTablesTask, timeout(300)).init(Mockito.eq(questions));
+        verify(populateTablesTask, timeout(300)).execute(Mockito.any(TaskCallback.class));
     }
 
-    private Module getTestModule() {
+    private Module mockModule() {
         return new AbstractModule() {
             @Override
             protected void configure() {
+                populateTablesTask = Mockito.mock(PopulateTablesTask.class);
                 bind(PopulateTablesTask.class).toInstance(populateTablesTask);
+
+                importExcelTask = Mockito.mock(ImportExcelTask.class);
                 bind(ImportExcelTask.class).toInstance(importExcelTask);
             }
         };
@@ -79,9 +82,7 @@ public class MainWindowContentPaneTest {
 
     @Before
     public void setUp() {
-        populateTablesTask = Mockito.mock(PopulateTablesTask.class);
-        importExcelTask = Mockito.mock(ImportExcelTask.class);
-        final Injector injector = Guice.createInjector(getTestModule());
+        final Injector injector = Guice.createInjector(mockModule());
         injector.injectMembers(this);
         JPanel panel = GuiActionRunner.execute(new GuiQuery<JPanel>() {
             public JPanel executeInEDT() {
