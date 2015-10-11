@@ -1,7 +1,7 @@
 package com.closeuptheapp.gui;
 
-import com.closeuptheapp.task.ImportExcelTask;
-import com.closeuptheapp.task.PopulateTablesTask;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import org.jdesktop.application.SingleFrameApplication;
 
 import javax.swing.*;
@@ -15,7 +15,8 @@ public class MainWindow extends SingleFrameApplication {
 
     @Override
     protected void startup() {
-        contentPanel = new MainWindowContentPane(new ImportExcelTask(), new PopulateTablesTask());
+        Injector injector = Guice.createInjector(new MainModule());
+        contentPanel = injector.getInstance(MainWindowContentPane.class);
         show(contentPanel.getContentPanel());
     }
 
@@ -26,4 +27,5 @@ public class MainWindow extends SingleFrameApplication {
     public static void main(String[] args) {
         launch(MainWindow.class, args);
     }
+
 }

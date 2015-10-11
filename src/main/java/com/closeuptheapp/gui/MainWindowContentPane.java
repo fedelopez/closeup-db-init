@@ -4,6 +4,7 @@ import com.closeuptheapp.domain.AbstractQuestion;
 import com.closeuptheapp.task.ImportExcelTask;
 import com.closeuptheapp.task.PopulateTablesTask;
 import com.closeuptheapp.task.TaskCallback;
+import com.google.inject.Inject;
 import org.apache.commons.io.FilenameUtils;
 import org.jdesktop.swingx.JXBusyLabel;
 
@@ -32,12 +33,13 @@ public class MainWindowContentPane {
     private JTextArea logConsole;
     private JXBusyLabel busyLabel;
 
+    @Inject
     private PopulateTablesTask dbTask;
+
+    @Inject
     private ImportExcelTask importTask;
 
-    public MainWindowContentPane(ImportExcelTask importTaskTask, PopulateTablesTask dbTask) {
-        this.dbTask = dbTask;
-        this.importTask = importTaskTask;
+    public MainWindowContentPane() {
         excelFilePath.setName(EXCEL_FILE_PATH_NAME);
         browse.setName(BROWSE_NAME);
         initialiseDatabaseButton.setName(INIT_DB_NAME);
@@ -100,8 +102,8 @@ public class MainWindowContentPane {
 
         @Override
         public Void doInBackground() {
-            importTask.init(new File(excelFilePath.getText()));
             try {
+                importTask.init(new File(excelFilePath.getText()));
                 List<AbstractQuestion> questions = importTask.execute(this);
                 dbTask.init(questions);
                 dbTask.execute(this);
@@ -127,5 +129,4 @@ public class MainWindowContentPane {
         }
 
     }
-
 }

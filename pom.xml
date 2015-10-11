@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ratatouille</groupId>
-    <artifactId>ratatouille</artifactId>
-    <version>2.0</version>
-    <name>ratatouille</name>
+    <groupId>com.closeuptheapp</groupId>
+    <artifactId>closeup-db-init</artifactId>
+    <version>2.1</version>
+    <name>closeup-db-init</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -29,8 +29,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
@@ -159,24 +159,29 @@
             <artifactId>log4j</artifactId>
             <version>1.2.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.0</version>
+        </dependency>
 
         <!--Test-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-swing-junit</artifactId>
+            <version>2.1.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.8.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.uispec4j</groupId>
-            <artifactId>uispec4j</artifactId>
-            <version>2.2</version>
+            <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
