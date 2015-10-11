@@ -7,6 +7,7 @@ import com.closeuptheapp.task.PopulateTablesTask;
 import com.closeuptheapp.task.TaskCallback;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.google.inject.Module;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.edt.GuiQuery;
@@ -80,10 +81,11 @@ public class MainWindowContentPaneTest {
     public void setUp() {
         populateTablesTask = Mockito.mock(PopulateTablesTask.class);
         importExcelTask = Mockito.mock(ImportExcelTask.class);
-        Guice.createInjector(getTestModule()).injectMembers(this);
+        final Injector injector = Guice.createInjector(getTestModule());
+        injector.injectMembers(this);
         JPanel panel = GuiActionRunner.execute(new GuiQuery<JPanel>() {
             public JPanel executeInEDT() {
-                MainWindowContentPane mainWindowPane = new MainWindowContentPane();
+                MainWindowContentPane mainWindowPane = injector.getInstance(MainWindowContentPane.class);
                 return mainWindowPane.getContentPanel();
             }
         });
